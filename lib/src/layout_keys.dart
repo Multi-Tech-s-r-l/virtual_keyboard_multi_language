@@ -77,7 +77,7 @@ const List<List> _defaultEnglishLayout = [
     'j',
     'k',
     'l',
-    ';',
+    ':',
     '\'',
     VirtualKeyboardKeyAction.Return
   ],

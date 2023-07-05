@@ -88,7 +88,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   bool isShiftEnabled = false;
 
   void _onKeyPress(VirtualKeyboardKey key) {
-    if (key.keyType == VirtualKeyboardKeyType.String) {
+    /*if (key.keyType == VirtualKeyboardKeyType.String) {
       textController.text += ((isShiftEnabled ? key.capsText : key.text) ?? '');
     } else if (key.keyType == VirtualKeyboardKeyType.Action) {
       switch (key.action) {
@@ -108,7 +108,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         default:
       }
     }
-
+*/
     onKeyPress?.call(key);
   }
 
