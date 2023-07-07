@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   /// Fired when the virtual keyboard key is pressed.
-  _onKeyPress(VirtualKeyboardKey key) {
+  _onKeyPress(VirtualKeyboardKey key, int isShiftEnabled) {
     if (key.keyType == VirtualKeyboardKeyType.String) {
       text = text + (shiftEnabled ? key.capsText ??"" : key.text ??"");
     } else if (key.keyType == VirtualKeyboardKeyType.Action) {
