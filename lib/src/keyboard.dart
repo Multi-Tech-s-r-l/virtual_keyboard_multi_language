@@ -35,8 +35,8 @@ class VirtualKeyboard extends StatefulWidget {
   /// The builder function will be called for each Key object.
   final Widget Function(BuildContext context, VirtualKeyboardKey key)? builder;
 
-  /// Set to true if you want only to show Caps letters.
-  final bool alwaysCaps;
+/*  /// Set to true if you want only to show Caps letters.
+  final bool alwaysCaps;*/
 
   /// inverse the layout to fix the issues with right to left languages.
   final bool reverseLayout;
@@ -58,7 +58,7 @@ class VirtualKeyboard extends StatefulWidget {
       this.height = _virtualKeyboardDefaultHeight,
       this.textColor = Colors.black,
       this.fontSize = 14,
-      this.alwaysCaps = false})
+     })
       : super(key: key);
 
   @override
@@ -78,14 +78,14 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   double? width;
   late Color textColor;
   late double fontSize;
-  late bool alwaysCaps;
+  //late bool alwaysCaps;
   late bool reverseLayout;
   late VirtualKeyboardLayoutKeys customLayoutKeys;
   // Text Style for keys.
   late TextStyle textStyle;
 
-  // True if shift is enabled.
-  bool isShiftEnabled = false;
+  // 1 if shift is enabled, 2 is always caps.
+  int isShiftEnabled = 0;
 
   void _onKeyPress(VirtualKeyboardKey key) {
     /*if (key.keyType == VirtualKeyboardKeyType.String) {
@@ -130,7 +130,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       width = widget.width;
       textColor = widget.textColor;
       fontSize = widget.fontSize;
-      alwaysCaps = widget.alwaysCaps;
+      //alwaysCaps = widget.alwaysCaps;
       reverseLayout = widget.reverseLayout;
       textController = widget.textController ?? textController;
       customLayoutKeys = widget.customLayoutKeys ?? customLayoutKeys;
@@ -157,7 +157,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     height = widget.height;
     textColor = widget.textColor;
     fontSize = widget.fontSize;
-    alwaysCaps = widget.alwaysCaps;
     reverseLayout = widget.reverseLayout;
     // Init the Text Style for keys.
     textStyle = TextStyle(
@@ -267,9 +266,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         height: height / customLayoutKeys.activeLayout.length,
         child: Center(
             child: Text(
-          alwaysCaps
-              ? key.capsText ?? ''
-              : (isShiftEnabled ? key.capsText : key.text) ?? '',
+              (isShiftEnabled>0 ? key.capsText : key.text) ?? '',
           style: textStyle,
         )),
       ),
@@ -345,11 +342,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     var wdgt = InkWell(
       onTap: () {
         if (key.action == VirtualKeyboardKeyAction.Shift) {
-          if (!alwaysCaps) {
-            setState(() {
-              isShiftEnabled = !isShiftEnabled;
-            });
-          }
+          setState((){
+            isShiftEnabled++;
+          if (isShiftEnabled==3){
+            isShiftEnabled=0;
+          }});
+
+
         }
 
         _onKeyPress(key);
