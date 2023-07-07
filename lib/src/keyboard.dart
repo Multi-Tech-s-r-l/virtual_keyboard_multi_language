@@ -110,10 +110,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     }
 */
     onKeyPress?.call(key, isShiftEnabled);
-    if (isShiftEnabled==1){
-      setState((){
-        isShiftEnabled=0;
-      });
+
+    if (key.keyType == VirtualKeyboardKeyType.String) {
+      if (isShiftEnabled == 1) {
+        setState(() {
+          isShiftEnabled = 0;
+        });
+      }
     }
   }
 
