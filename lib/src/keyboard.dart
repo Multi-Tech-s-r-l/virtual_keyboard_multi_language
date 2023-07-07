@@ -23,6 +23,9 @@ class VirtualKeyboard extends StatefulWidget {
   /// Color for key texts and icons.
   final Color textColor;
 
+  /// Color for shift key when caps selected.
+  final Color? capsColor;
+
   /// Font size for keyboard keys.
   final double fontSize;
 
@@ -57,7 +60,9 @@ class VirtualKeyboard extends StatefulWidget {
       this.reverseLayout = false,
       this.height = _virtualKeyboardDefaultHeight,
       this.textColor = Colors.black,
+      this.capsColor,
       this.fontSize = 14,
+
      })
       : super(key: key);
 
@@ -77,6 +82,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   late double height;
   double? width;
   late Color textColor;
+  Color? capsColor;
   late double fontSize;
   //late bool alwaysCaps;
   late bool reverseLayout;
@@ -137,6 +143,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       height = widget.height;
       width = widget.width;
       textColor = widget.textColor;
+      capsColor = widget.capsColor;
       fontSize = widget.fontSize;
       //alwaysCaps = widget.alwaysCaps;
       reverseLayout = widget.reverseLayout;
@@ -318,7 +325,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             ));
         break;
       case VirtualKeyboardKeyAction.Shift:
-        actionKey = Icon(Icons.arrow_upward, color: textColor);
+        actionKey = Icon(Icons.arrow_upward, color: isShiftEnabled==2 ? capsColor ?? Theme.of(context).colorScheme.primary : textColor);
         break;
       case VirtualKeyboardKeyAction.Space:
         actionKey = actionKey = Icon(Icons.space_bar, color: textColor);
