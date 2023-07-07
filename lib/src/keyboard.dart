@@ -109,7 +109,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       }
     }
 */
-    onKeyPress?.call(key);
+    onKeyPress?.call(key, isShiftEnabled);
   }
 
   @override
