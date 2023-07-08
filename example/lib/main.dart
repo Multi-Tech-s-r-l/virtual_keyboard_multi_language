@@ -86,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   textController: _controllerText,
                   //customLayoutKeys: _customLayoutKeys,
                   defaultLayouts: [
-                    VirtualKeyboardDefaultLayouts.Arabic,
-                    VirtualKeyboardDefaultLayouts.English
+                    VirtualKeyboardDefaultLayouts.English,
+                    VirtualKeyboardDefaultLayouts.Symbols,
                   ],
                   //reverseLayout :true,
                   type: isNumericMode

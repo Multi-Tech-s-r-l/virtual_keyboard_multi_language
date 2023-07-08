@@ -337,17 +337,19 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         );
         break;
       case VirtualKeyboardKeyAction.SwithLanguage:
-        actionKey = GestureDetector(
+        actionKey =
+            GestureDetector(
             onTap: () {
               setState(() {
                 customLayoutKeys.switchLanguage();
               });
             },
             child: Container(
+              color: Colors.transparent,
               height: double.infinity,
               width: double.infinity,
               child: Icon(
-                Icons.language,
+                Icons.emoji_symbols_rounded,
                 color: textColor,
               ),
             ));

@@ -29,6 +29,9 @@ class VirtualKeyboardDefaultLayoutKeys extends VirtualKeyboardLayoutKeys {
     switch (defaultLayouts[index]) {
       case VirtualKeyboardDefaultLayouts.English:
         return _defaultEnglishLayout;
+      case VirtualKeyboardDefaultLayouts.Symbols:
+        return _defaultSymbolLayout;
+
       case VirtualKeyboardDefaultLayouts.Arabic:
         return _defaultArabicLayout;
       default:
@@ -105,7 +108,74 @@ const List<List> _defaultEnglishLayout = [
     '_',
   ]
 ];
-
+/// Keys for Virtual Keyboard's rows.
+const List<List> _defaultSymbolLayout = [
+  // Row 1
+  const [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+  ],
+  // Row 2
+  const [
+    '!',
+    '"',
+    '£',
+    '\$',
+    '%',
+    '&',
+    '/',
+    '(',
+    ')',
+    '=',
+    VirtualKeyboardKeyAction.Backspace
+  ],
+  // Row 3
+  const [
+    '?',
+    '\'',
+    '^',
+    '*',
+    '[',
+    ']',
+    '@',
+    '#',
+    '§',
+    ';',
+    ':',
+    VirtualKeyboardKeyAction.Return
+  ],
+  // Row 4
+  const [
+    VirtualKeyboardKeyAction.Shift,
+    '.',
+    ',',
+    '-',
+    '_',
+    '<',
+    '>',
+    '{',
+    '}',
+    'ç',
+    'ò',
+    VirtualKeyboardKeyAction.Shift
+  ],
+  // Row 5
+  const [
+    VirtualKeyboardKeyAction.SwithLanguage,
+    'à',
+    VirtualKeyboardKeyAction.Space,
+    'ì',
+    'ù',
+  ]
+];
 const List<List> _defaultArabicLayout = [
   // Row 1
   const [
