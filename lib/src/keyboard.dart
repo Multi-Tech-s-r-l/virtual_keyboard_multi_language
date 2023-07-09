@@ -17,7 +17,7 @@ class VirtualKeyboard extends StatefulWidget {
   /// Virtual keyboard height. Default is 300
   final double height;
 
-  /// Virtual keyboard height. Default is full screen width
+  /// Virtual keyboard width. Default is full screen width
   final double? width;
 
   /// Color for key texts and icons.
@@ -377,10 +377,20 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       ),
     );
 
-    if (key.action == VirtualKeyboardKeyAction.Space)
+    if (key.action == VirtualKeyboardKeyAction.Space){
+      double trueWidth =0;
+      if (width!=null) {
+        if (width!>MediaQuery.of(context).size.width){
+          trueWidth=MediaQuery.of(context).size.width;
+        }
+      } else {
+        trueWidth=MediaQuery.of(context).size.width;
+      }
       return SizedBox(
-          width: (width ?? MediaQuery.of(context).size.width) / 2, child: wdgt);
-    else
+          width: trueWidth / 2, child: wdgt);
+    } else {
       return Expanded(child: wdgt);
+    }
+
   }
 }
