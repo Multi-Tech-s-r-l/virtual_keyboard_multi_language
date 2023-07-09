@@ -382,6 +382,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       if (width!=null) {
         if (width!>MediaQuery.of(context).size.width){
           trueWidth=MediaQuery.of(context).size.width;
+        } else {
+          trueWidth= width!;
         }
       } else {
         trueWidth=MediaQuery.of(context).size.width;

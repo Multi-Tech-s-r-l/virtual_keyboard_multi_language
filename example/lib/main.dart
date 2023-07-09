@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.deepPurple,
               child: VirtualKeyboard(
                   height: 300,
-                  //width: 500,
+                  width: 500,
                   textColor: Colors.white,
                   textController: _controllerText,
                   //customLayoutKeys: _customLayoutKeys,
