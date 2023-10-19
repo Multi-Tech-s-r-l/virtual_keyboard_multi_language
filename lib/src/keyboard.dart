@@ -321,18 +321,20 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               child: Icon(
                 Icons.backspace,
                 color: textColor,
+                size: fontSize,
               ),
             ));
         break;
       case VirtualKeyboardKeyAction.Shift:
-        actionKey = Icon(Icons.arrow_upward, color: isShiftEnabled==2 ? capsColor ?? Theme.of(context).colorScheme.primary : textColor);
+        actionKey = Icon(Icons.arrow_upward, size: fontSize, color: isShiftEnabled==2 ? capsColor ?? Theme.of(context).colorScheme.primary : textColor);
         break;
       case VirtualKeyboardKeyAction.Space:
-        actionKey = actionKey = Icon(Icons.space_bar, color: textColor);
+        actionKey = actionKey = Icon(Icons.space_bar, size: fontSize, color: textColor);
         break;
       case VirtualKeyboardKeyAction.Return:
         actionKey = Icon(
           Icons.keyboard_return,
+          size: fontSize,
           color: textColor,
         );
         break;
@@ -350,6 +352,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               width: double.infinity,
               child: Icon(
                 Icons.emoji_symbols_rounded,
+                size: fontSize,
                 color: textColor,
               ),
             ));
