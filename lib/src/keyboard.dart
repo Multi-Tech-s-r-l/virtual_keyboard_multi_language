@@ -352,7 +352,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               width: double.infinity,
               child: Icon(
                 Icons.emoji_symbols_rounded,
-                size: fontSize,
+
                 color: textColor,
               ),
             ));
